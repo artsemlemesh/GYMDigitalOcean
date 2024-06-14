@@ -1,11 +1,13 @@
 # Use an official node image as a parent image.
-FROM node:16
+FROM node:latest
 
 # Set the working directory.
 WORKDIR /app
 
 # Install dependencies.
 COPY package*.json ./
+
+RUN npm i
 RUN npm install
 
 # Copy the project files.
