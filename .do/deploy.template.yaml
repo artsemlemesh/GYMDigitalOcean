@@ -2,9 +2,9 @@
 services:
   - name: backend
     dockerfile_path: gym-backend/Dockerfile
-    build_context: gym-backend
+    build_context: gym-backend/gym_app
     environment_slug: python
-    source_dir: gym-backend
+    source_dir: gym-backend/gym_app
   - name: frontend
     dockerfile_path: frontend/Dockerfile
     build_context: frontend
