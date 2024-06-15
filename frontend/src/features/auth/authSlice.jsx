@@ -8,6 +8,10 @@ const initialState = {
   error: null,
 };
 
+
+
+
+
 export const loginUser = createAsyncThunk(
   "auth/login",
   async ({ username, password }) => {
@@ -24,6 +28,7 @@ export const loginUser = createAsyncThunk(
     }
 
     const data = await response.json();
+    console.log(data.user, 'DATA')
     localStorage.setItem("user", JSON.stringify(data.user));
     return data;
   }

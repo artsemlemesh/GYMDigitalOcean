@@ -44,6 +44,7 @@ const Days = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredSchedules.map((schedule, index) => (
           <SingleClass
+          classId={schedule.id}
   key={index}
   className={schedule.class_instance.name}
   classTime={`${schedule.start_time} - ${schedule.end_time}`}

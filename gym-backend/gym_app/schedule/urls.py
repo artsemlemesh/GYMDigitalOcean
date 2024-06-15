@@ -11,5 +11,5 @@ router.register(r'schedule', ScheduleViewSet)
 
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
 ]
