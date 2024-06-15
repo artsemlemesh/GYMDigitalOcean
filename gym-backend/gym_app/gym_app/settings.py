@@ -71,6 +71,7 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.IsAuthenticated',
     # ],
 }
+STRIPE_SECRET_KEY = 'sk_test_51PLGUYIhhfcmQPRUUqSG7cLHcxhNCtP6ELITYdhzSb0Uy3qBSPVWBao8x6V5n1s9ACg90s8HTgmPpTvj02N21wW800UYR6kCaa'
 
 
 CORS_ALLOW_ALL_ORIGINS = True
