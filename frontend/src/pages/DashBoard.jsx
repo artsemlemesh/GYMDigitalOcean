@@ -1,6 +1,5 @@
 import { Link, Navigate, Outlet, Route, Routes } from "react-router-dom";
 import EnrolledClasses from "../components/EnrolledClasses";
-// import HomePage from "./HomePage";
 
 const Dashboard = () => {
   return (
@@ -40,9 +39,13 @@ const Dashboard = () => {
 
       {/* main content */}
 
-      <div className="flex-1 p-6">
-        <Outlet/>
-        {/* outlet is a placeholder in my parent route component where the nested route components will be rendered. acts as a dynamic part of the paretn route */}
+      <div className="flex-1 p-6 overflow-x-auto">
+        {" "}
+        {/* overflow-x-auto - makes classes block scrollabke */}
+        <div className="flex space-x-4">
+          <Outlet />
+          {/* outlet is a placeholder in my parent route component where the nested route components will be rendered. acts as a dynamic part of the paretn route */}
+        </div>
       </div>
     </div>
   );
