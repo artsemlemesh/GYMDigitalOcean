@@ -21,7 +21,8 @@ const CheckoutForm = ({ plan }) => {
     try {
       const response = await axios.post('http://127.0.0.1:8000/create-payment-intent/')
       const clientSecret = response.data.clientSecret
-      
+      // console.log(response, 'RESPONSE')
+      // console.log(clientSecret, 'CLIENT SECRET')
 
       const payload = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {

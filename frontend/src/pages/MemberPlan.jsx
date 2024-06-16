@@ -11,30 +11,29 @@ const stripePromise = loadStripe('pk_test_51PLGUYIhhfcmQPRULxV6eXxZHMWqEEW29vQ1F
 const MembershipPlans = () => {
   const plans = [
     {
-      name: 'Basic Plan',
-      price: 2000, // Stripe works with the smallest currency unit
-      displayPrice: '$20/month',
-      features: ['Access to gym', '1 personal training session', 'Free Wi-Fi'],
+      name: 'Starter Plan',
+      price: 1500, // $15/month, in cents
+      displayPrice: '$15/month',
+      features: ['Access to gym facilities', '2 group classes per month', 'Free locker'],
     },
     {
-      name: 'Basic Plan',
-      price: 2000, // Stripe works with the smallest currency unit
-      displayPrice: '$20/month',
-      features: ['Access to gym', '1 personal training session', 'Free Wi-Fi'],
+      name: 'Fitness Plan',
+      price: 2500, // $25/month, in cents
+      displayPrice: '$25/month',
+      features: ['Access to gym and swimming pool', '5 group classes per month', '1 personal training session', 'Free Wi-Fi'],
     },
     {
-      name: 'Basic Plan',
-      price: 2000, // Stripe works with the smallest currency unit
-      displayPrice: '$20/month',
-      features: ['Access to gym', '1 personal training session', 'Free Wi-Fi'],
+      name: 'Pro Plan',
+      price: 3500, // $35/month, in cents
+      displayPrice: '$35/month',
+      features: ['All Fitness Plan features', 'Unlimited group classes', '3 personal training sessions', 'Sauna access'],
     },
     {
-      name: 'Basic Plan',
-      price: 2000, // Stripe works with the smallest currency unit
-      displayPrice: '$20/month',
-      features: ['Access to gym', '1 personal training session', 'Free Wi-Fi'],
-    },
-    // other plans...
+      name: 'Ultimate Plan',
+      price: 5000, // $50/month, in cents
+      displayPrice: '$50/month',
+      features: ['All Pro Plan features', 'Unlimited personal training', 'Access to all classes', 'Free gym merchandise', 'Priority booking for facilities'],
+    }
   ];
 
   return (
