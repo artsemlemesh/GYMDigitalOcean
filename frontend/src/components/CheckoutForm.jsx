@@ -11,12 +11,17 @@ const CheckoutForm = ({ plan }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!stripe){
+      return
+    }
+
     setLoading(true);
 
     try {
-      const { data: clientSecret } = await axios.post('http://127.0.0.1:8000/create-payment-intent/', {
-        amount: plan.price,
-      });
+      const response = await axios.post('http://127.0.0.1:8000/create-payment-intent/')
+      const clientSecret = response.data.clientSecret
+      
 
       const payload = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
