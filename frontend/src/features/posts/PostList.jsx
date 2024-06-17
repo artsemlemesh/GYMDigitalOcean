@@ -13,6 +13,8 @@ const PostsList = ({activePost, setActivePost}) => {
   const postRefs = useRef([]);
 
   
+
+  
   postRefs.current = posts.map((_, i) => postRefs.current[i] ?? createRef())
 
   console.log(postRefs, 'POSTREFS')
