@@ -1,37 +1,18 @@
 import React from 'react';
 
-const Sidebar = () => {
-  // Example categories and recent posts data
-  const categories = ['Technology', 'Health', 'Lifestyle', 'Education'];
-  const recentPosts = [
-    'How to Learn React',
-    'Benefits of Yoga',
-    'Top 10 Travel Destinations',
-    'The Future of AI',
-  ];
-
+const Sidebar = ({ posts, activePost }) => {
   return (
-    <aside>
-      <div className="mb-8">
-        <h3 className="text-xl font-bold mb-4">Categories</h3>
-        <ul>
-          {categories.map((category, index) => (
-            <li key={index} className="mb-2">
-              <a href="#" className="text-blue-500 hover:underline">{category}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 className="text-xl font-bold mb-4">Recent Posts</h3>
-        <ul>
-          {recentPosts.map((post, index) => (
-            <li key={index} className="mb-2">
-              <a href="#" className="text-blue-500 hover:underline">{post}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <aside className="sticky top-0 h-screen overflow-y-auto bg-white p-4">
+      {posts.map((post, index) => (
+        <div
+          key={index}
+          className={`p-4 rounded-lg cursor-pointer hover:bg-gray-100 ${
+            post.id === activePost ? 'bg-blue-100 border-l-4 border-blue-500 shadow' : 'border-l-4 border-transparent'
+          } transition-all duration-300 ease-in-out`}
+        >
+          <h4 className="text-gray-800 font-semibold">{post.title}</h4>
+        </div>
+      ))}
     </aside>
   );
 };

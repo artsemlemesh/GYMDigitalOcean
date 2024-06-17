@@ -1,27 +1,46 @@
-import { useEffect } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Spinner } from "../../components/Spinner";
 import { fetchPosts } from "./postsSlice";
 import { useNavigate } from "react-router-dom";
 
-const PostsList = () => {
+const PostsList = ({activePost, setActivePost}) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.posts);
   const postStatus = useSelector((state) => state.posts.status);
   const error = useSelector((state) => state.posts.error);
-
   const navigate = useNavigate();
+  const postRefs = useRef([]);
 
-  const handlePurchaseClick = () => {
-    navigate("/payment");
-  };
+  
+  postRefs.current = posts.map((_, i) => postRefs.current[i] ?? createRef())
 
+  console.log(postRefs, 'POSTREFS')
+  console.log(posts, 'posts')
   useEffect(() => {
     if (postStatus === "idle") {
       dispatch(fetchPosts());
     }
   }, [postStatus, dispatch]);
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const positions = postRefs.current.map(ref => ref.current.getBoundingClientRect().top);
+      const index = positions.findIndex(pos => pos >= 0 && pos <= window.innerHeight / 2);
+      if (index !== -1 && posts[index] && activePost !== posts[index].id) {
+        setActivePost(posts[index].id);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [posts, activePost, setActivePost]);
+
+  const handlePurchaseClick = () => {
+    navigate("/payment");
+  };
+
+ 
   let content;
 
   if (postStatus === "loading") {
@@ -29,6 +48,7 @@ const PostsList = () => {
   } else if (postStatus === "succeeded") {
     content = posts.map((post, index) => (
       <div
+      ref={postRefs.current[index]}
         key={index}
         className="col-span-1 lg:col-span-2 max-w-full rounded overflow-hidden shadow-lg mb-8 flex flex-col"
       >
