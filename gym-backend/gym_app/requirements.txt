@@ -48,6 +48,8 @@ Pillow==10.1.0
 # prompt-toolkit==3.0.39
 # psutil @ file:///private/tmp/python-psutil-20231015-5378-1ng7p6p/psutil-5.9.6
 psycopg2==2.9.9
+psycopg2-binary==2.9.9
+psycopg==3.1.19
 py3db==0.0.19
 # pycparser @ file:///private/tmp/pycparser-20231013-5787-1anpge2/pycparser-2.21
 # Pygments @ file:///private/tmp/pygments-20231121-5274-1rlyumb/pygments-2.17.2
