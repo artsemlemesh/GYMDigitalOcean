@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os.path
 from pathlib import Path
-
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -72,7 +72,7 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.IsAuthenticated',
     # ],
 }
-STRIPE_SECRET_KEY = 'sk_test_51PLGUYIhhfcmQPRUUqSG7cLHcxhNCtP6ELITYdhzSb0Uy3qBSPVWBao8x6V5n1s9ACg90s8HTgmPpTvj02N21wW800UYR6kCaa'
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 
 CSRF_COOKIE_HTTPONLY = False 
 CORS_ALLOW_ALL_ORIGINS = True
